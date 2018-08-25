@@ -5,6 +5,7 @@ This Script powers the Open In Typora Applescript Application of the same name.
 use AppleScript version "2.4" -- Yosemite (10.10) or later
 use scripting additions
 
+-- This is the handler for when you launch the application
 on run
 	tell application "Finder"
 		if openFiles then
@@ -20,12 +21,13 @@ on run
 	typora(finderSelection)
 end run
 
--- script was drag-and-dropped onto
+-- This is the handler for when you drop a file on the application
+-- This will open the folder or files selected in the upmost Finder window
 on open (theList)
 	typora(theList)
 end open
 
--- open in Sublime
+-- Open in Typora
 on typora(listOfAliases)
 	tell application "Typora"
 		open listOfAliases
